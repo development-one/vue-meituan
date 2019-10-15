@@ -1,7 +1,7 @@
 <template>
   <div class="layout-blank">
     <el-container>
-      <el-header style="background: #F8F8F8;height:auto;">
+      <el-header style="height:auto;">
         <div class="cta">
 
           <Header />
@@ -9,7 +9,7 @@
         </div>
       </el-header>
 
-      <el-main>
+      <el-main style="background: #fff;">
         <div class="cta">
 
           <Nuxt />

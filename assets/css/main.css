@@ -18,7 +18,7 @@
 }
 
 .layout-blank{
-  background-color: #fff;
+  background-color: #F8F8F8;
   color: #2e2f30;
   letter-spacing: 0.5px;
   font-family: "Source Sans Pro", Arial, sans-serif;
@@ -29,6 +29,7 @@ body{
   margin: 0;
   padding: 0;
 }
+
 body *{
   margin: 0;
   padding: 0;
@@ -42,7 +43,7 @@ a {
   color: #999999;
 }
 
-a:hover, a:focus, a:visited{
+a:hover {
   color: #FE8C00;
 }
 
@@ -59,4 +60,6 @@ a:hover, a:focus, a:visited{
 }
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
