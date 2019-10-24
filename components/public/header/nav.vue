@@ -202,9 +202,10 @@
             background: #fff;
             text-align: center;
             position: absolute;
+            z-index: 99;
             top: 100%;
             display: none;
-            z-index: 99;
+            
 
             dd {
               margin-bottom: 10px;

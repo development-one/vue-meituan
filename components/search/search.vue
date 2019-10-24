@@ -15,7 +15,7 @@
 </template>
 
 <style lang="scss">
-	@import '~assets/css/main.scss';
+@import '~assets/css/main.scss';
   .container-search {
   	.el-input-group__append{
 			color: #000;
