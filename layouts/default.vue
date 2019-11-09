@@ -1,11 +1,10 @@
 <template>
-  <div class="layout-blank" style="min-width: 960px;">
+  <div class="layout-blank">
     <el-container>
       <!-- 头部导航和搜索 -->
       <el-header style="height:auto;background: #fff;box-shadow:0 2px 10px -5px #999;">
-
         <div class="header" style="background: #F8F8F8;">
-          <Header style="max-width: 1200px;margin: 0 auto;"/>
+          <Header class="cta"/>
         </div>
         
         <div class="cta">
@@ -14,7 +13,6 @@
             <Search class="search-info"/>
           </div>
         </div>
-
       </el-header>
 
       <el-main>
@@ -38,6 +36,11 @@
 </template>
 
 <style lang="scss">
+.layout-blank {
+  min-width: 960px;
+  background: #F8F8F8;
+  height: 100%;
+}
 .cta {
 
   .search {
