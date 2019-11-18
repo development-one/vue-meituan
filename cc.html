@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button  id="btn" onclick="cc()">aaa</button>
+	<script>
+		function bb(suc,timea){
+			var end = null;
+			return () => {
+				if( Date.now() - end < timea){
+					return ;
+				}
+				suc()
+				end = Date.now()
+			}
+		}
+		const cc = bb(()=>{
+			console.log("cc")
+		},2000)
+	</script>
+</body>
+</html>

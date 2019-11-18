@@ -5,6 +5,7 @@
     </div>
     <div class="statyCta mg">
       <StatyList />
+      <Nav />
     </div>
   </div>
 </template>
@@ -20,12 +21,13 @@
 <script>
 import Banner from "@/components/banner/index.vue"
 import StatyList from "@/components/statyList/index.vue"
+import Nav from "@/components/nav/index.vue"
 export default {
   components: {
     Banner,
-    StatyList
-  },
-  layout: "new"
+    StatyList,
+    Nav
+  }
 }
 </script>
 

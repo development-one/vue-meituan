@@ -26,7 +26,7 @@
       <el-footer style="height:auto">
         <!-- 底部信息栏 -->
         <div class="cta">
-          Footer
+          <Footer />
         </div>
         
       </el-footer>
@@ -65,10 +65,12 @@
 <script>
 import Header from "~/components/public/header/index"
 import Search from "@/components/search/search.vue"
+import Footer from "@/components/public/footer/index"
 export default {
   components: {
     Header,
-    Search
+    Search,
+    Footer
   }
 }
 </script>

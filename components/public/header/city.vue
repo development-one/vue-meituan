@@ -13,7 +13,7 @@
 		</span>
 
 		<span class="login">
-			<a href="" class="active">立即登录</a>
+			<a href="/register" class="active">立即登录</a>
 			<a href="">注册</a>
 		</span>
 		
