@@ -15,7 +15,7 @@
   		</el-form-item>
 
   		<el-form-item prop="pass">
-    		<el-input autocomplete="off" prefix-icon="el-icon-lock" placeholder="密码" v-model="regis.pass"></el-input>
+    		<el-input type="password" autocomplete="off" prefix-icon="el-icon-lock" placeholder="密码" v-model="regis.pass"></el-input>
   		</el-form-item>
 
   		<div class="forget">

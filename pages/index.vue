@@ -4,7 +4,8 @@
       <Banner />
     </div>
     <div class="statyCta mg">
-      <StatyList />
+      <StatyList>
+      </StatyList>
       <Nav />
     </div>
   </div>
@@ -23,6 +24,11 @@ import Banner from "@/components/banner/index.vue"
 import StatyList from "@/components/statyList/index.vue"
 import Nav from "@/components/nav/index.vue"
 export default {
+  data() {
+    return {
+      cc: "cc"
+    }
+  },
   components: {
     Banner,
     StatyList,

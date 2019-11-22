@@ -8,6 +8,7 @@
     @focus="focus" 
     @blur="blur"
     @input="change"
+   	@keyup.enter.native="submit"
     clearable>
     	<el-button slot="append" icon="el-icon-search" style="width:80px;"></el-button>
   	</el-input>
@@ -22,20 +23,11 @@
   		</dd>
   	</dl>
   	<dl class="search-change" v-show="isSearchList">
-  		<dd><a href="https://www.meituan.com/zhoubianyou/51081044/">长沙世界之窗</a></dd>
-  		<dd><a href="">华谊兄弟</a></dd>
-  		<dd><a href="">龙牌酒家</a></dd>
-  		<dd><a href="">长沙电影小镇</a></dd>
-  		<dd><a href="">长沙生态动物园</a></dd>
+  		<dd v-for="item in searchList" :key="item"><a href="">{{item}}</a></dd>
   	</dl>
 
   	<div class="recommend-list">
-  		<a href="" ref="aa">长沙生态动物园</a>
-  		<a href="">长沙世界之窗</a>
-  		<a href="">长沙方特东方神画</a>
-  		<a href="">炭河千古情</a>
-  		<a href="">长沙海底世界</a>
-  		<a href="">橘子洲景区</a>
+  		<a :href="'/s/'+item+'/'" v-for="item in recommendList" :key="item">{{item}}</a>
   	</div>
   </div>
 </template>
@@ -45,10 +37,10 @@
   	.container-search {
   		position: relative;
   		.el-input-group__append{
-				color: #000;
-				border: 0;
-				background: $them-a;
-			}
+			color: #000;
+			border: 0;
+			background: $them-a;
+		}
 		.el-input__inner {
 			border-right: 0;
 			&:focus {
@@ -64,8 +56,9 @@
 			position: absolute;
 			left: 0;
 			top: 10px;
+			box-sizing: border-box;
 			padding: 10px;
-			width: 470px;
+			width: 490px;
 			border: 1px solid #ccc;
 			border-top: 0;
 			dt {
@@ -88,13 +81,21 @@
 			background: white;
 			position: absolute;
 			left: 0;
-			padding: 5px 10px; 
-			width: 470px;
+			width: 490px;
 			border: 1px solid #ccc;
 			border-top: 0;
 			z-index: 111;
 			dd {
-				margin: 5px 0;
+				a {
+					box-sizing: border-box;
+					padding: 4px 10px;
+					display: block;
+					color: #333333;
+					&:hover{
+						background: #F8F8F8;
+						color: #FE8C00;
+					}
+				}
 			}
 		}
 
@@ -116,7 +117,10 @@ import {throttle} from "@/assets/utils.js"
 			return {
 				search: "",
 				isFocus: false,
-				timer: null
+				ssee: true,
+				timer: null,
+				searchList: [],
+				recommendList: ["长沙生态动物园","长沙世界之窗","长沙方特东方神画","炭河千古情","长沙海底世界","橘子洲景区"]
 			}
 		},
 		computed: {
@@ -124,7 +128,7 @@ import {throttle} from "@/assets/utils.js"
 				return this.isFocus && !this.search
 			},
 			isSearchList() {
-				return this.isFocus && this.search
+				return this.isFocus && this.search && this.ssee
 			}
 		},
 		methods: {
@@ -138,15 +142,32 @@ import {throttle} from "@/assets/utils.js"
 				},200)			
 			},
 			change() {
-				/*if (this.timer) {
-        		  clearTimeout(this.timer)
-        		}
-        		this.timer = setTimeout(() => {
-        		  console.log("ccc")
-        		}, 200)*/
+        		let lt = ["长沙餐馆","长沙小星星",'长沙小甜甜','长沙呵呵哒','广州一枝花','广州小时间',"上海寻开心"]
 				throttle(()=>{
-					console.log("cc")
+
+					this.searchList = []
+					let searchTrim = this.search.trim()
+					let scLength = searchTrim.length
+					
+					lt.map((item,index)=>{
+
+						if(this.search == "" || this.search == " "){
+							return true;
+						}
+						let ct = item.slice(0,scLength)
+						if(ct==searchTrim){
+							this.searchList.push(item)
+						}
+					})
+					this.ssee = true
+					if(this.searchList.length == 0){
+						this.ssee = false
+					}
+
 				},1000)
+			},
+			submit() {
+				alert("aa")
 			}
 		}
 	}
